@@ -41,3 +41,12 @@
   justify-content: center;
   align-items: center;
 }
+
+.searchBtn:hover {
+  color: #808080;
+  cursor: pointer;
+}
+
+.searchBtn:focus {
+  color: #000;
+}

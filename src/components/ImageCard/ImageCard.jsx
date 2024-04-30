@@ -17,12 +17,6 @@ export default function ImageCard({ picture, onImageClick }) {
               alt={picture.alt_description}
             />
           </div>
-            {/* <div className={css.description}>
-                <ul>
-                  <li className={css.descrItem}>Likes:<span className={descr-span}>{picture.likes}</span></li> 
-                  <li className={css.descrItem}>Author:<span className={descr-span}>{picture.user.name}</span></li>  
-                </ul>
-            </div> */}
           <div className={css.description}>
             <span>
               <span className={css.descrItem}>Likes:</span> {picture.likes}
