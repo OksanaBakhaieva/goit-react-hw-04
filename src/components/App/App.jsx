@@ -13,7 +13,7 @@ import { errorMes, noquery } from '../../services/toaster';
 
 export default function App() {
     const [searchQuery, setSearchQuery] = useState(null);
-    const [images, setImages] = useState([]);
+    const [pictures, setPictures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     const [loadMore, setLoadMore] = useState(false);
@@ -40,17 +40,17 @@ export default function App() {
                 setIsLoading(true);
                 const data = await fetchImages(searchQuery, page);
                     if (data.total === 0) {
-                        noquery('Sorry, there are no images matching your search query. Please try again!');
+                        noquery();
                         return;
                     }
                     if (data.total_pages > page) {
                     setLoadMore(true);
                     }
                 
-                setImages(prevState => prevState.concat(data.results));
+                setPictures(prevState => prevState.concat(data.results));
             } catch (err) {
                 setIsError(true);
-                errorMes( 'An error occurred while fetching images. Please try again later.');
+                errorMes();
             } finally {
                 setIsLoading(false);
             }
@@ -86,7 +86,7 @@ export default function App() {
         <div className="css.container">
             <SearchBar onSubmit={handleSearchQuery} />
             {isError && <ErrorMessage />}
-            <ImageGallery images={images} onImageClick={handleImageClick} />
+            <ImageGallery pictures={pictures} onImageClick={handleImageClick} />
             {isLoading && <Loader />}
             {loadMore && <LoadMoreBtn onLoadMore={handleLoadMore} />}
             {isModalOpen && (<ImageModal

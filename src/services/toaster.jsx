@@ -5,10 +5,10 @@ const notify = () =>
   
 
 const noquery = () =>
-  toast.error('Sorry, there are no images matching your search query. Please try again!');
+  toast('Sorry, there are no images matching your search query. Please try again!');
 
 const errorMes = () => {
-  toast.error('An error occurred while fetching images. Please try again later.');
+  toast('An error occurred while fetching images. Please try again later.');
 };
 
 export { notify, noquery, errorMes };

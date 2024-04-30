@@ -7,18 +7,32 @@ export default function ImageCard({ picture, onImageClick }) {
     imgAlt: picture.alt_description,
   };
     return (
-        <>
-            <div className={css.imgCardContainer}>
-            <img className={css.imgItem} onClick={()=>onImageClick(imgData)}
-                src={picture.urls.small}
-                alt={picture.alt_description} />
+        <div>
+          <div className={css.imgCardContainer}>
+            <img
+              onClick={() => onImageClick(imgData)}
+              className={css.imgItem}
+              width={300}
+              src={picture.urls.small}
+              alt={picture.alt_description}
+            />
+          </div>
+            {/* <div className={css.description}>
+                <ul>
+                  <li className={css.descrItem}>Likes:<span className={descr-span}>{picture.likes}</span></li> 
+                  <li className={css.descrItem}>Author:<span className={descr-span}>{picture.user.name}</span></li>  
+                </ul>
+            </div> */}
+          <div className={css.description}>
+            <span>
+              <span className={css.descrItem}>Likes:</span> {picture.likes}
+            </span>
+            <span>
+              <span className={css.descrItem}>Author:</span> {picture.user.name}
+            </span>
+          </div>
         </div>
-        <div className={css.description}>
-            <ul>
-               <li className={css.descrItem}>Likes:<span className={descr-span}>{picture.likes}</span></li> 
-               <li className={css.descrItem}>Author:<span className={descr-span}>{picture.user.name}</span></li>  
-            </ul>
-        </div>
-        </>
   );
 };
+
+ImageCard.displayName = 'ImageCard';
